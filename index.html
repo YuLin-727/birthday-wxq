@@ -241,6 +241,15 @@
             object-fit: cover;
             display: block;
             background: white;
+            opacity: 0;
+            transition: opacity 0.45s ease;
+        }
+        .photo-item img.loaded {
+            opacity: 1;
+        }
+        .photo-item.photo-loaded {
+            background: white;
+            animation: none;
         }
         @keyframes skeletonShimmer {
             0% { background-position: 200% 0; }
@@ -678,6 +687,31 @@
             font-size: 0.95rem;
             color: #bbb;
             margin-bottom: 16px;
+        }
+        .album-preload {
+            margin: -8px auto 18px;
+            max-width: 300px;
+        }
+        .album-preload-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            color: #9b806f;
+            font-size: 0.88rem;
+            margin-bottom: 5px;
+        }
+        .album-preload-track {
+            height: 5px;
+            overflow: hidden;
+            border-radius: 3px;
+            background: #eee4da;
+        }
+        .album-preload-fill {
+            width: 0;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--mint);
+            transition: width 0.25s ease;
         }
         .quiz-question {
             font-size: clamp(1.2rem, 3vw, 1.5rem);
@@ -1235,6 +1269,15 @@
 
         <div class="quiz-title">星星的专属挑战</div>
         <div class="quiz-subtitle">答对所有问题，解锁纪念册 ✨</div>
+        <div class="album-preload" id="albumPreload">
+            <div class="album-preload-label">
+                <span id="albumPreloadText">正在准备纪念册照片...</span>
+                <span id="albumPreloadCount">0%</span>
+            </div>
+            <div class="album-preload-track">
+                <div class="album-preload-fill" id="albumPreloadFill"></div>
+            </div>
+        </div>
 
         <div class="quiz-progress" id="quizProgress">问题 1 / 3</div>
         <div class="quiz-question" id="quizQuestion"></div>
@@ -1396,6 +1439,47 @@ const mascotMessages = {
 let currentQ = 0;
 let quizCorrect = 0;
 let bgmPlaying = false;
+let firstPagePreloadPromise = null;
+
+function getWebpSrc(src) {
+    return src.replace(/\.(jpe?g|png)$/i, '.webp');
+}
+
+function updatePreloadProgress(loaded, total) {
+    var pct = total ? Math.round(loaded / total * 100) : 100;
+    var fill = document.getElementById('albumPreloadFill');
+    var count = document.getElementById('albumPreloadCount');
+    var text = document.getElementById('albumPreloadText');
+    if (fill) fill.style.width = pct + '%';
+    if (count) count.textContent = pct + '%';
+    if (text && loaded === total) text.textContent = '纪念册照片准备好了';
+}
+
+function preloadFirstPagePhotos() {
+    if (firstPagePreloadPromise) return firstPagePreloadPromise;
+    var photos = pages[0] && pages[0].photos ? pages[0].photos : [];
+    var loaded = 0;
+    updatePreloadProgress(loaded, photos.length);
+    firstPagePreloadPromise = Promise.allSettled(photos.map(function(photo) {
+        return new Promise(function(resolve) {
+            var img = new Image();
+            img.onload = img.onerror = function() {
+                loaded++;
+                updatePreloadProgress(loaded, photos.length);
+                resolve();
+            };
+            img.src = getWebpSrc(photo.src);
+        });
+    }));
+    return firstPagePreloadPromise;
+}
+
+function markPhotoLoaded(img) {
+    img.classList.add('loaded');
+    if (img.parentElement && img.parentElement.parentElement) {
+        img.parentElement.parentElement.classList.add('photo-loaded');
+    }
+}
 
 function showQuestion() {
     const q = quizQuestions[currentQ];
@@ -1527,8 +1611,9 @@ function mascotTalk(who) {
             // Build photos
             const photosHtml = page.photos.map(p => {
                 const sizeClass = p.size === 'large' ? 'w-large' : p.size === 'small' ? 'w-small' : 'w-med';
+                const loadAttrs = index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
                 return `<div class="photo-item ${p.tilt || 'tilt-l'} ${sizeClass}" style="cursor:pointer">
-                    <picture><source srcset="${p.src.replace(/\.(jpe?g|png)$/i, '.webp')}" type="image/webp"><img src="${p.src}" alt="" loading="lazy" decoding="async" onclick="openLightbox('${p.src}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${p.src}'.split('/').pop() + '<br></div>'"></picture>
+                    <picture><source srcset="${getWebpSrc(p.src)}" type="image/webp"><img src="${p.src}" alt="" ${loadAttrs} decoding="async" onload="markPhotoLoaded(this)" onclick="openLightbox('${p.src}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${p.src}'.split('/').pop() + '<br></div>'"></picture>
                     ${p.caption ? `<div class="photo-caption">${esc(p.caption)}</div>` : ''}
                 </div>`;
             }).join('');
@@ -1961,6 +2046,7 @@ function mascotTalk(who) {
 
         // ===== Init =====
     document.getElementById('mainContent').classList.remove('show');
+    preloadFirstPagePhotos();
     showQuestion();
     setTimeout(function() { launchConfetti(30); }, 500);
     document.addEventListener('scroll', function() {
