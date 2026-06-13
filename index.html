@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://raw.githubusercontent.com/YuLin-727/birthday-wxq/main/photos/01-%E5%88%9D%E8%AF%86/IMG20250413143011.jpg">
     <meta name="description" content="这是我们的小小纪念册 ✨ 王星琪21岁生日快乐！">
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --pink: #FFB7C5;
@@ -24,7 +24,7 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             background: var(--bg);
             color: var(--text);
             min-height: 100vh;
@@ -163,7 +163,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.1rem;
             background: none;
             border: 2px solid var(--pink);
@@ -458,7 +458,7 @@
         .message-form input,
         .message-form textarea {
             width: 100%;
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.1rem;
             border: 2px solid var(--border);
             border-radius: 12px;
@@ -472,7 +472,7 @@
         .message-form input:focus,
         .message-form textarea:focus { border-color: var(--pink); background: white; }
         .message-form button {
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.2rem;
             font-weight: 700;
             background: var(--pink);
@@ -694,7 +694,7 @@
             margin-bottom: 16px;
         }
         .quiz-option {
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.15rem;
             background: white;
             border: 2px solid var(--border);
@@ -803,7 +803,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.2rem;
             font-weight: 700;
             background: linear-gradient(135deg, #FF6B6B, #FF4757);
@@ -853,7 +853,7 @@
             100% { transform: scale(1); }
         }
         .retry-btn {
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.1rem;
             font-weight: 700;
             background: var(--lavender);
@@ -888,7 +888,7 @@
             color: #8B6F5E;
         }
         .enter-btn {
-            font-family: 'ZCOOL KuaiLe', 'Caveat', cursive;
+            font-family: 'Caveat', cursive;
             font-size: 1.4rem;
             font-weight: 700;
             background: var(--pink);
@@ -991,23 +991,6 @@
             border: 6px solid transparent;
             border-top-color: white;
         }
-
-        .mascot-inline { display: none; vertical-align: middle; cursor: pointer; position: relative; }
-        .mascot-inline svg { display: block; filter: drop-shadow(1px 1px 3px rgba(0,0,0,0.08)); transition: transform 0.2s; }
-        .mascot-inline svg:active { transform: scale(0.9); }
-        .mascot-inline-left { margin-right: 6px; }
-        .mascot-inline-right { margin-left: 6px; }
-        .mascot-speech-inline {
-            position: absolute; bottom: calc(100% + 6px); left: 50%;
-            transform: translateX(-50%) translateY(5px);
-            background: white; border: 2px solid var(--border);
-            border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
-            padding: 4px 10px; font-size: 0.75rem; white-space: nowrap;
-            box-shadow: 3px 3px 0 var(--shadow);
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease, transform 0.3s ease;
-            z-index: 10;
-        }
-        .mascot-speech-inline.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
         /* ===== Floating Comments (Bubbles) ===== */
         .bubbles-container {
@@ -1195,117 +1178,38 @@
             pointer-events: auto;
         }
         @keyframes bubbleCenterHold {
-            0%, 100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
-            25% { transform: translate(-50%, -3px) scale(1.02); }
-            50% { transform: translate(-50%, 2px) scale(0.98); }
-            75% { transform: translate(-50%, -2px) scale(1.01); }
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+            25% { transform: translate(0, -3px) scale(1.02); }
+            50% { transform: translate(0, 2px) scale(0.98); }
+            75% { transform: translate(0, -2px) scale(1.01); }
         }
 
         /* ===== Responsive ===== */
-        @media (max-width: 700px) {
-            .hero { padding: 30px 16px 20px; }
-            .hero h1 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
-            .hero .deco { font-size: 1.2rem; }
+                @media (max-width: 700px) {
             .book { padding: 20px 14px 16px; min-height: 400px; }
-            .page-content { flex-direction: column !important; align-items: center; gap: 16px; }
+            .page-content { flex-direction: column !important; align-items: center; }
             .photos-area { width: 100% !important; max-width: 360px; }
             .photo-item.w-med { width: calc(50% - 7px); }
             .photo-item.w-small { width: calc(33.33% - 10px); }
-            .text-area { flex: none; width: 100%; max-width: 100%; }
             .page-header { flex-wrap: wrap; gap: 8px; }
             .audio-player { flex-wrap: wrap; }
             .audio-progress { min-width: 40px; }
             .quiz-scene { padding: 28px 20px 24px; margin: 0 10px; }
-            .quiz-characters { gap: 16px; }
-            .char-box svg { width: 64px; height: 90px; }
-            .speech-bubble { max-width: 90%; }
             .mascot svg { width: 56px; height: 78px; }
             .mascot-left { left: max(20px, calc(50% - 370px)); }
             .mascot-right { right: max(20px, calc(50% - 370px)); }
             .mascot { top: 50%; }
             .mascot-speech { font-size: 0.8rem; max-width: min(220px, 75vw); }
             .bubble { max-width: 150px; font-size: 0.78rem; }
-            .message-form { padding: 20px; }
-            .nav-arrow { width: 40px; height: 40px; font-size: 1.4rem; }
-            .nav-dot { width: 10px; height: 10px; }
-            .bgm-btn { width: 44px; height: 44px; font-size: 1.2rem; bottom: 16px; right: 16px; }
-            .top-btn { width: 38px; height: 38px; font-size: 1.1rem; bottom: 16px; left: 16px; }
-            .lightbox { padding: 16px; }
-            .lightbox-close { top: 10px; right: 16px; font-size: 2rem; }
-            .page-content.layout-center .photos-area { max-width: 100%; }
-            .page-content.layout-center .text-area { max-width: 100%; }
-        }
-        @media (max-width: 540px) {
-            .hero { padding: 24px 12px 16px; }
-            .hero h1 { font-size: clamp(1.5rem, 6vw, 1.8rem); }
-            .hero .subtitle { font-size: clamp(0.9rem, 3vw, 1.1rem); }
-            .hero .deco { display: none; }
-            .book { padding: 16px 12px 14px; min-height: 360px; }
-            .page-content { gap: 12px; }
-            .photos-area { max-width: 100%; gap: 8px; }
-            .photo-item.w-med { width: calc(50% - 5px); }
-            .photo-item.w-small { width: calc(33.33% - 6px); }
-            .text-area { max-width: 100%; }
-            .page-title { font-size: clamp(1.2rem, 4vw, 1.4rem); }
-            .page-text { font-size: clamp(0.9rem, 2.5vw, 1rem); }
-            .quiz-scene { padding: 22px 16px 20px; margin: 0 6px; }
-            .quiz-characters { gap: 12px; }
-            .char-box svg { width: 48px; height: 68px; }
-            .quiz-title { font-size: clamp(1.3rem, 4vw, 1.6rem); }
-            .quiz-question { font-size: clamp(1rem, 3vw, 1.2rem); }
-            .quiz-option { font-size: 1rem; padding: 10px 16px; }
-            .speech-bubble { font-size: 0.9rem; padding: 10px 14px; max-width: 100%; }
-            .red-packet-btn { font-size: 1rem; padding: 10px 20px; }
-            .mascot svg { width: 44px; height: 62px; }
-            .mascot-left { left: 8px; }
-            .mascot-right { right: 8px; }
-            .mascot-speech { font-size: 0.7rem; max-width: min(160px, 65vw); }
-            .message-form { padding: 16px; }
-            .message-form input,
-            .message-form textarea { font-size: 1rem; padding: 8px 12px; }
-            .message-form button { font-size: 1.05rem; padding: 8px 22px; }
-            .comments-section { padding: 0 12px 40px; }
-            .section-title { font-size: clamp(1.3rem, 4vw, 1.6rem); }
-            .bgm-btn { width: 40px; height: 40px; font-size: 1.1rem; bottom: 12px; right: 12px; }
-            .top-btn { width: 34px; height: 34px; font-size: 1rem; bottom: 12px; left: 12px; }
-            .nav-arrow { width: 36px; height: 36px; font-size: 1.2rem; }
-            .nav-section { gap: 12px; }
-            .like-btn { font-size: 0.95rem; padding: 3px 12px 3px 10px; }
-            .album-wrap { padding: 0 8px; }
-            #bubblesOverlay .bubble { max-width: 120px; font-size: 0.7rem; padding: 6px 10px; }
-            .mascot-inline { display: inline-block; }
-            .mascot svg { display: none; }
-            .mascot { pointer-events: none; }
-            .mascot-speech.show { display: none; }
-            .page-text { font-size: clamp(0.9rem, 2.5vw, 1rem); line-height: 1.6; word-break: break-word; }
-            .photo-item.w-large { width: 100%; }
-            .photo-item { margin-bottom: 2px; }
-            .text-area .page-title { margin-bottom: 6px; }
-            .section-title .mascot-inline svg { width: 28px; height: 38px; }
         }
         @media (max-width: 400px) {
-            .hero { padding: 20px 10px 14px; }
-            .hero h1 { font-size: clamp(1.3rem, 5.5vw, 1.5rem); }
-            .hero .subtitle { font-size: 0.85rem; }
-            .book { padding: 12px 8px 10px; min-height: 320px; }
-            .page-content { gap: 10px; }
-            .page-header { font-size: 0.95rem; }
-            .page-number { font-size: 0.8rem; }
-            .nav-arrow { width: 32px; height: 32px; font-size: 1.1rem; }
-            .quiz-scene { padding: 16px 12px 16px; }
-            .char-box svg { width: 40px; height: 56px; }
-            .char-name { font-size: 0.7rem; }
-            .quiz-option { font-size: 0.9rem; padding: 8px 14px; }
-            .quiz-subtitle { font-size: 0.9rem; }
-            .mascot svg { width: 36px; height: 50px; }
-            .mascot { top: 60%; }
-            .mascot-speech { font-size: 0.65rem; max-width: min(120px, 60vw); padding: 6px 10px; }
-            .message-form { padding: 12px; }
-            .message-card { padding: 12px 14px; }
-            .message-card .text { font-size: 0.95rem; }
-            .bgm-btn { width: 36px; height: 36px; font-size: 1rem; bottom: 10px; right: 10px; }
-            .top-btn { width: 30px; height: 30px; font-size: 0.9rem; bottom: 10px; left: 10px; }
-            .lightbox-close { top: 8px; right: 12px; font-size: 1.8rem; }
+            .book { padding: 14px 10px 12px; min-height: 320px; }
+            .nav-arrow { width: 36px; height: 36px; font-size: 1.2rem; }
+            .quiz-scene { padding: 20px 14px 18px; }
+            .char-box svg { width: 60px; height: 84px; }
+            .mascot svg { width: 44px; height: 62px; }
+            .mascot { top: 50%; }
+            .mascot-speech { font-size: 0.7rem; max-width: min(150px, 70vw); }
         }
     </style>
 </head>
@@ -1420,17 +1324,7 @@
 
 <!-- ===== Comments ===== -->
 <section class="comments-section">
-    <span class="section-title">
-        <span class="mascot-inline mascot-inline-left" onclick="mascotTalkInline(this, 'yulin')">
-            <span class="mascot-speech-inline">点击我~</span>
-            <svg viewBox="0 0 100 140" width="32" height="44"><use href="#charYulin"/></svg>
-        </span>
-        给星琪留言
-        <span class="mascot-inline mascot-inline-right" onclick="mascotTalkInline(this, 'xingqi')">
-            <span class="mascot-speech-inline">点我看看~</span>
-            <svg viewBox="0 0 100 140" width="32" height="44"><use href="#charXingqi"/></svg>
-        </span>
-    </span>
+    <span class="section-title">给星琪留言 </span>
     <div class="message-form">
         <input type="text" id="msgName" placeholder="你的名字" maxlength="20">
         <textarea id="msgText" placeholder="写下你想对星琪说的话..." rows="4" maxlength="300"></textarea>
@@ -1451,16 +1345,31 @@
 
 <footer>made with  for 王星琪's birthday</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
-    <script>
-        const SUPABASE_URL = 'https://bpjyiehusqhnqlrbjdfg.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_WsxikpQ0UPdGRAYftKYxFg_ILgZZQV_';
-        const { createClient } = supabase;
-        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
-        const PHOTO_BASE = '';
-    </script>
     <script src="pages.js"></script>
 <script>
+// ===== Seed Messages (visible to everyone) =====
+const SEED_MESSAGES = [
+  { name: "✨ 小星星", text: "祝王星琪21岁生日快乐！天天开心！", time: "6/13" },
+  { name: "🌟 送你一颗星", text: "愿你像星星一样，永远闪闪发光~", time: "6/13" },
+  { name: "💫 路过的小天使", text: "生日快乐呀！新的一岁要更幸福哦！", time: "6/13" },
+  { name: "🌸 春天的风", text: "星星生日快乐！祝你所愿皆成真！", time: "6/13" },
+  { name: "🎂 生日蛋糕", text: "祝你吃好喝好，火锅永远有位！", time: "6/13" },
+  { name: "🎉 庆祝小队", text: "21岁啦！愿你永远保持可爱和认真！", time: "6/13" },
+  { name: "💖 暖心留言", text: "祝你平安顺遂，想做的事都有回应。", time: "6/13" },
+  { name: "🦋 蝴蝶飞过", text: "生日快乐！愿你的每一天都值得被纪念~", time: "6/13" },
+  { name: "🌻 向日葵", text: "祝你永远向阳，永远灿烂！21岁快乐！", time: "6/13" },
+  { name: "🍀 幸运草", text: "祝你考试顺利，会的全考，蒙的全对！", time: "6/13" }
+];
+const STORAGE_MSGS = 'birthday_msgs_wxq';
+
+function getLocalMessages() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_MSGS) || '[]'); }
+  catch(_) { return []; }
+}
+function saveLocalMessages(msgs) {
+  try { localStorage.setItem(STORAGE_MSGS, JSON.stringify(msgs)); }
+  catch(_) {}
+}
 // ===== State =====
     let currentPage = 0;
     let currentAudio = null;
@@ -1569,17 +1478,8 @@ function enterAlbum() {
     }
     renderPage(0, null, { noFadeOut: true });
     setTimeout(function() { staggerPageContent(); }, 80);
-    loadMessages();
+    setTimeout(loadMessages, 600);
     launchConfetti(60);
-}
-
-function mascotTalkInline(el, who) {
-    var speech = el.querySelector('.mascot-speech-inline');
-    if (!speech) return;
-    speech.textContent = mascotMessages[who];
-    speech.classList.add('show');
-    if (who === 'yulin') { launchCake(30); } else { launchRedPacket(20); launchConfetti(25); }
-    setTimeout(function() { speech.classList.remove('show'); }, 3500);
 }
 
 function mascotTalk(who) {
@@ -1624,7 +1524,7 @@ function mascotTalk(who) {
             const photosHtml = page.photos.map(p => {
                 const sizeClass = p.size === 'large' ? 'w-large' : p.size === 'small' ? 'w-small' : 'w-med';
                 return `<div class="photo-item ${p.tilt || 'tilt-l'} ${sizeClass}" style="cursor:pointer">
-                    <img src="${encodeURI(PHOTO_BASE + p.src)}" alt="" loading="lazy" onclick="openLightbox('${encodeURI(PHOTO_BASE + p.src)}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${encodeURI(p.src)}'.split('/').pop() + '<br></div>'">
+                    <img src="${encodeURI(p.src)}" alt="" loading="lazy" onclick="openLightbox('${encodeURI(p.src)}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${encodeURI(p.src)}'.split('/').pop() + '<br></div>'">
                     ${p.caption ? `<div class="photo-caption">${esc(p.caption)}</div>` : ''}
                 </div>`;
             }).join('');
@@ -1824,52 +1724,38 @@ function mascotTalk(who) {
         });
     }
 
-    function createOverlayBubbles(container, items) {
+    async function loadMessages() {
+        var container = document.getElementById('bubblesOverlay');
+        var localMsgs = getLocalMessages();
+        // Combine seed messages + local messages
+        var allMessages = SEED_MESSAGES.concat(localMsgs);
         container.innerHTML = '';
+        renderSettledMessages(allMessages);
+        var items = allMessages.length > 0 ? allMessages : [
+            {name:'✨ 写下祝福', text:'送给星星的生日祝福~', time:''},
+            {name:'⭐ 留下心愿', text:'点击这里写下你想说的话', time:''}
+        ];
         items.forEach(function(m, i) {
             var el = document.createElement('div');
             el.className = 'bubble';
             var rot = (Math.random() > 0.5 ? 1 : -1) * (1 + Math.random() * 2);
             var bg = MSG_PAL[i % MSG_PAL.length];
-            el.style.cssText = '--b-rot:' + rot + 'deg;background:' + bg + ';animation:none;transition:none;transform:none;';
+            el.style.cssText = '--b-rot:' + rot + 'deg;background:' + bg + ';animation:none;transition:none;';
             el.innerHTML = '<div class="b-name">' + esc(m.name) + '</div><div class="b-text">' + esc(m.text) + '</div><div class="b-time">' + esc(m.time) + '</div>';
             el.addEventListener('click', function() { this.querySelector('.b-text').classList.toggle('expanded'); });
             container.appendChild(el);
         });
-    }
-
-    async function loadMessages() {
-        var container = document.getElementById('bubblesOverlay');
-        var placeholders = [
-            {name:'✨ 写下祝福', text:'送给星星的生日祝福~', time:''},
-            {name:'⭐ 留下心愿', text:'点击这里写下你想说的话', time:''}
-        ];
-        createOverlayBubbles(container, placeholders);
-        renderSettledMessages([]);
         animateBubbles();
-
-        try {
-            var { data, error } = await supabaseClient.from('messages').select('*').order('id', { ascending: false });
-            if (error) throw error;
-            var messages = data || [];
-            if (messages.length > 0) {
-                createOverlayBubbles(container, messages);
-                renderSettledMessages(messages);
-                animateBubbles();
-            }
-        } catch(e) {
-            console.error('留言加载失败', e);
-        }
     }
 
     function animateBubbles() {
         var bubbles = document.querySelectorAll('#bubblesOverlay .bubble');
         if (bubbles.length === 0) return;
         var count = bubbles.length;
-        var cols = window.innerWidth < 540 ? Math.min(2, count) : Math.min(4, count);
+        var cols = Math.min(4, count);
         var rows = Math.ceil(count / cols);
-        var spacingX = window.innerWidth < 540 ? 120 : 240;
-        var spacingY = window.innerWidth < 540 ? 100 : 140;
+        var spacingX = 240;
+        var spacingY = 140;
         var startX = -((cols - 1) * spacingX) / 2;
         var startY = -((rows - 1) * spacingY) / 2;
 
@@ -1892,14 +1778,14 @@ function mascotTalk(who) {
             else if (edge === 1) { sxOff = vw + 150 + Math.random() * 300; syOff = Math.random() * vh; }
             else if (edge === 2) { sxOff = Math.random() * vw; syOff = vh + 150 + Math.random() * 300; }
             else { sxOff = -150 - Math.random() * 300; syOff = Math.random() * vh; }
-            b.style.transform = 'translate(calc(-50% + ' + sxOff + 'px), ' + syOff + 'px)';
+            b.style.transform = 'translate(' + sxOff + 'px, ' + syOff + 'px)';
             b.style.opacity = '0';
         });
 
         requestAnimationFrame(function() {
             bubbles.forEach(function(b) {
                 b.style.transition = 'transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease';
-                b.style.transform = 'translate(-50%, 0)';
+                b.style.transform = 'translate(0, 0)';
                 b.style.opacity = '1';
             });
         });
@@ -1919,7 +1805,7 @@ function mascotTalk(who) {
                     var dx = Math.cos(angle) * dist;
                     var dy = Math.sin(angle) * dist - 200;
                     b.style.transition = 'transform 1.2s ease-out, opacity 1.2s ease-out';
-                    b.style.transform = 'translate(calc(-50% + ' + dx + 'px), ' + dy + 'px)';
+                    b.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
                     b.style.opacity = '0';
                 });
 
@@ -1934,13 +1820,12 @@ function mascotTalk(who) {
         const name = document.getElementById('msgName').value.trim();
         const text = document.getElementById('msgText').value.trim();
         if (!name || !text) { alert('请填写名字和留言内容 '); return; }
-        try {
-            var { error } = await supabaseClient.from('messages').insert({ name, text, time: new Date().toLocaleString('zh-CN') });
-            if (error) throw error;
-        } catch(e) {
-            alert('留言提交失败，请重试');
-            return;
-        }
+        // Save to localStorage
+        var msgs = getLocalMessages();
+        msgs.unshift({ name: name, text: text, time: new Date().toLocaleString('zh-CN') });
+        // Keep max 50 messages
+        if (msgs.length > 50) msgs = msgs.slice(0, 50);
+        saveLocalMessages(msgs);
         document.getElementById('msgName').value = '';
         document.getElementById('msgText').value = '';
         loadMessages();
