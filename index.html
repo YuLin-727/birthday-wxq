@@ -228,6 +228,7 @@
             border: 4px solid white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1), 0 0 0 2px var(--border);
             border-radius: 2px;
+            aspect-ratio: 4 / 3;
             overflow: hidden;
             position: relative;
             transition: transform 0.2s;
@@ -1528,7 +1529,7 @@ function mascotTalk(who) {
             const photosHtml = page.photos.map(p => {
                 const sizeClass = p.size === 'large' ? 'w-large' : p.size === 'small' ? 'w-small' : 'w-med';
                 return `<div class="photo-item ${p.tilt || 'tilt-l'} ${sizeClass}" style="cursor:pointer">
-                    <picture><source srcset="${p.src.replace(/\.jpe?g$/i, '.webp')}" type="image/webp"><img src="${p.src}" alt="" loading="lazy" onclick="openLightbox('${p.src}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${p.src}'.split('/').pop() + '<br></div>'"></picture>
+                    <picture><source srcset="${p.src.replace(/\.(jpe?g|png)$/i, '.webp')}" type="image/webp"><img src="${p.src}" alt="" loading="lazy" decoding="async" onclick="openLightbox('${p.src}')" onerror="this.outerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;background:#f5ede4;color:#bbb;font-size:0.9rem;padding:20px>' + '${p.src}'.split('/').pop() + '<br></div>'"></picture>
                     ${p.caption ? `<div class="photo-caption">${esc(p.caption)}</div>` : ''}
                 </div>`;
             }).join('');
